@@ -1,7 +1,7 @@
 'use client';
 
 import { useScrollProgress } from './hooks/useScrollProgress';
-import AstroRelic from './components/AstroRelic';
+
 import Link from 'next/link';
 
 export default function HeroSection() {
@@ -9,25 +9,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-white px-4 py-20 overflow-hidden">
-      {/* Background Layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black opacity-60 z-0" />
-
-      {/* AstroBoy Silhouette Relic (Background Image) */}
-      <div
-        className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
-        style={{
-          backgroundImage: "url('/assets/astroboy-relic.jpg')",
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '400px',
-          backgroundPosition: 'top left',
-          opacity: 0.08,
-          mixBlendMode: 'overlay',
-        }}
-      />
-
-      {/* Scroll-reactive Relic */}
-      <AstroRelic phase={scrollPhase} className="z-10" />
-
+     
       {/* Hero Text */}
       <div className="z-10 text-center max-w-2xl">
         <h1 className="text-3xl font-semibold mb-2 tracking-tight">

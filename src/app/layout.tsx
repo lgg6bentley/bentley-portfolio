@@ -1,7 +1,6 @@
 import './globals.css';
 import type { ReactNode } from 'react';
 import SidebarNav from '../SidebarNav'; // ✅ SidebarNav is in src/
-import About from '../About';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
