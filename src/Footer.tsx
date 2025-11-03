@@ -2,6 +2,7 @@
 
 import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiTypescript, SiJavascript, SiTailwindcss } from 'react-icons/si';
+import { useTrait } from '../context/TraitContext'; // adjust path if needed
 
 export default function Footer() {
   return (
