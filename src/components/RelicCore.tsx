@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { type ReactElement } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -36,7 +36,7 @@ const traitStyles = {
 };
 
 // Icon map based on title
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, ReactElement> = {
   'Mind Relic': <GiBrain className="text-4xl mb-4 text-purple-400 animate-pulse z-10" />,
   'Tic Tac Toe': <GiNetworkBars className="text-4xl mb-4 text-blue-400 animate-pulse z-10" />,
   ArcanaForge: <GiCardBurn className="text-4xl mb-4 text-orange-400 animate-pulse z-10" />,
