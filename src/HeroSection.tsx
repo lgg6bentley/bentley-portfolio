@@ -5,17 +5,26 @@ import { useTrait } from './components/context/TraitContext';
 import RelicCore from './components/RelicCore';
 import SymbolCard from './components/SymbolCard';
 
+type Trait = 'Signalborn' | 'Firekeeper' | 'Chainbreaker';
+
+interface FeaturedProject {
+  title: string;
+  description: string;
+  href: string;
+  trait: Trait;
+}
+
 export default function HeroSection() {
   const scrollPhase = useScrollProgress();
   const { trait } = useTrait();
 
-  const featuredProjects = [
+  const featuredProjects: FeaturedProject[] = [
     {
-  title: 'Mind Relic',
-  description: 'A distraction-based memory game which includes Tic Tac Toe.',
-  href: 'https://mindrelic-orcin.vercel.app',
-  trait: 'Chainbreaker',
-},
+      title: 'Mind Relic',
+      description: 'A distraction-based memory game which includes Tic Tac Toe.',
+      href: 'https://mindrelic-orcin.vercel.app',
+      trait: 'Chainbreaker',
+    },
     {
       title: 'Tic Tac Toe',
       description: 'Classic game reimagined with founder relics and mythic tension.',
@@ -59,14 +68,14 @@ export default function HeroSection() {
       <div className="mt-20 w-full max-w-6xl z-10">
         <h2 className="text-3xl font-bold text-white mb-8 text-center">Featured Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-  {featuredProjects.map((project) => (
-    <RelicCore key={project.title} {...project} />
-  ))}
+          {featuredProjects.map((project) => (
+            <RelicCore key={project.title} {...project} />
+          ))}
 
-  {/* Symbol Relics */}
-  <SymbolCard title="Signal Glyph" trait="Signalborn" />
-  <SymbolCard title="Multiverse Gate" trait="Firekeeper" mode="portal" />
-</div>
+          {/* Symbol Relics */}
+          <SymbolCard title="Signal Glyph" trait="Signalborn" />
+          <SymbolCard title="Multiverse Gate" trait="Firekeeper" mode="portal" />
+        </div>
       </div>
     </section>
   );
