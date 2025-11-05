@@ -1,33 +1,48 @@
-// app/layout.tsx
-import './globals.css';
-import type { ReactNode } from 'react';
-import SidebarNav from '@/SidebarNav';
-import MobileNav from '../components/MobileNav';
-import { TraitProvider } from '../components/context/TraitContext'; // 👈 Add this
+// src/app/layout.tsx
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+import './globals.css';
+import type { Metadata } from 'next';
+import { ReactNode } from 'react';
+
+// 👇 CORRECTED IMPORTS BASED ON FILE LOCATION
+import SidebarNav from '../SidebarNav'; 
+import MobileNav from '../components/MobileNav'; // Assuming MobileNav is still in src/components/
+import { TraitProvider } from '../components/context/TraitContext'; // Assuming context is in src/components/context/
+
+// Metadata for the Prometheus Theme
+export const metadata: Metadata = {
+  title: 'Bentley Systems Division // Foundation Log',
+  description: '// UNIT_ID: BENTLEY_01 // Full-Stack Architect Log',
+};
+
+// Main Layout Component
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
+    // 👇 CRITICAL: MUST HAVE <html> TAG
     <html lang="en">
-      <head>
-        <title>Bentley Systems Division</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Founder. Architect. Creator. Engineering trust at planetary scale."
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-black text-white font-sans tracking-wide">
-        <TraitProvider> {/*Wrap everything inside */}
-          <SidebarNav />
-          <MobileNav />
-          <main className="w-full px-4 py-8 md:ml-48">{children}</main>
+      {/* Set global theme styles: Dark background, light monospace font */}
+      {/* 👇 CRITICAL: MUST HAVE <body> TAG */}
+      <body className="bg-zinc-950 text-white font-mono antialiased"> 
+        
+        {/* TraitProvider wraps all components that use the 'useTrait' hook */}
+        <TraitProvider> 
+          
+          {/* Fixed Navigation Components */}
+          <SidebarNav /> 
+          <MobileNav /> 
+          
+          {/* Main Content Area */}
+          <main className="min-h-screen w-full md:ml-56 p-4">
+            {children} 
+          </main>
+
         </TraitProvider>
       </body>
     </html>
+    // 👆 End of return statement
   );
 }
