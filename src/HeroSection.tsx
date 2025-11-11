@@ -31,12 +31,12 @@ export default function HeroSection() {
       href: 'https://mindrelic-orcin.vercel.app',
       status: 'Dormant',
     },
-    {
-      title: 'Tic Tac Toe [Simulation]',
-      description: 'Classic game simulation, currently running in debug mode.',
-      href: '/projects/tic-tac-toe',
-      status: 'Operational',
-    },
+   {
+  "title": "RiskGrid [Simulation]",
+  "description": "Territory control relic activated. Trait-coded units deployed across dynamic grid. Debug mode tracks conquest logic.",
+  "href": "/projects/risk-grid",
+  "status": "Operational"
+},
     {
       title: 'ArcanaForge [Core]',
       description: 'A card-based universe builder with lore encoding and founder rituals.',
